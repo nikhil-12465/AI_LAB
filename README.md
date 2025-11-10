@@ -84,6 +84,7 @@ In this 8-puzzle program, DFS is used to reach the goal configuration (1 2 3 4 5
 
 
 **Output:**
+
 <img width="659" height="334" alt="image" src="https://github.com/user-attachments/assets/2c8fd960-e912-4338-83ea-dca2c86c90e1" />
 
 ### Eight puzzel Problem Uisng Hill climbing :
@@ -111,6 +112,7 @@ A greedy local search to quickly move toward the goal by always choosing the nei
    **Space:** stores only current state + neighbors ⇒ O(1) (very small).
 
 **Output :**
+
 
 <img width="549" height="772" alt="image" src="https://github.com/user-attachments/assets/d7d8a5af-31d5-499b-b13e-bec48578ac4e" />
 
@@ -146,7 +148,56 @@ It is widely used in pathfinding, AI navigation, and puzzle-solving.
  O(V) — for storing open and closed lists (visited nodes and costs).
 
 **Output :**
+
 <img width="564" height="131" alt="Screenshot 2025-11-10 213327" src="https://github.com/user-attachments/assets/7dbfba74-f456-49bc-8f50-d79af9708eab" />
+
+
+### 2. Water Jug Problem 
+
+Finds the minimum number of steps to measure exactly target liters using two jugs of capacities jug1 and jug2, by exploring all valid states level by level.
+
+**How It Works :- **
+
+1.   State = (x, y) where x = water in jug1, y = water in jug2.
+
+2.   Start from (0, 0); push to a queue; mark visited.
+
+3.   From each state, generate all legal next states:
+
+ ->  Fill jug1: (jug1, y)
+
+ ->  Fill jug2: (x, jug2)
+
+ ->  Empty jug1: (0, y)
+
+ ->  Empty jug2: (x, 0)
+
+ ->  Pour jug1 → jug2
+
+ ->  Pour jug2 → jug1
+
+4.   Stop when x == target or y == target.
+
+5.   Use a parent map to reconstruct and print the path (sequence of states).
+
+**Time Complexity**
+
+O(jug1 × jug2) states at most; each processed once → O(C1·C2).
+
+Each expansion generates a constant number of moves.
+
+**Space Complexity**
+
+O(C1·C2) for the visited set and parent map.
+
+**Solvability Condition (important for viva) :**
+
+A solution exists iff target ≤ max(jug1, jug2) and target % gcd(jug1, jug2) == 0.
+
+**Output :**
+
+<img width="404" height="143" alt="Screenshot 2025-11-11 013208" src="https://github.com/user-attachments/assets/ed25185b-1bc7-4a20-82fa-23cb26cc1285" />
+
 
 
 
