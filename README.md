@@ -8,7 +8,8 @@ Here are some codes which i had done in my AI Practical lab
 
 BFS is used to find the shortest path or minimum number of moves required to reach the goal state from a given start state in an unweighted problem like the 8-puzzle.It explores all possible moves level by level.
 
-How it works :-
+**How it works :-**
+
 It starts with the initial puzzle configuration.
 
 It uses a queue (FIFO) to explore all possible next moves (left, right, up, down) of the blank tile.
@@ -19,7 +20,7 @@ The algorithm continues expanding states level by level until the goal configura
 
 Once the goal is found, the search stops — this ensures minimum steps are used.
 
-Time Complexity :-
+**Time Complexity :-**
 
 O(b^d)
 
@@ -29,7 +30,7 @@ d = depth of the solution
 
 → Exponential growth as depth increases.
 
-Space Complexity:
+**Space Complexity:**
 
 O(b^d) — Because BFS stores all generated states (open and closed lists) in memory.
 
@@ -55,7 +56,7 @@ DFS goes deep along one path, and when it cannot move further, it backtracks to 
 
 It continues until the goal state is reached or no more new states are left.
 
-** Inversion Concept (Solvability Check)  :- **
+**Inversion Concept (Solvability Check)  :- **
 
 Before DFS starts, the code checks whether the puzzle is solvable.
 
