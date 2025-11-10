@@ -4,7 +4,7 @@ Here are some codes which i had done in my AI Practical lab
 
 ## DAY 1 : Solving Eight Puzzel Problem with diffrent methods
 
-#### 1. Eight Puzzel Problem Using Breath First Search Technique
+### 1. Eight Puzzel Problem Using Breath First Search Technique
 
 BFS is used to find the shortest path or minimum number of moves required to reach the goal state from a given start state in an unweighted problem like the 8-puzzle.It explores all possible moves level by level.
 
@@ -39,7 +39,7 @@ O(b^d) — Because BFS stores all generated states (open and closed lists) in me
 <img width="416" height="224" alt="image" src="https://github.com/user-attachments/assets/c841dea9-2836-4cb9-866e-2e53e3ef25e3" />
 
 
-#### 2. Eight Puzzel Problem Using Depth First Search Technique
+### 2. Eight Puzzel Problem Using Depth First Search Technique
 
 DFS is used to search or traverse all possible puzzle states in a deep manner — it explores one path fully before backtracking.
 In this 8-puzzle program, DFS is used to reach the goal configuration (1 2 3 4 5 6 7 8 0) from a given start state.
@@ -85,6 +85,38 @@ O(b·d) → because it stores only the current path in the stack (less memory th
 
 **Output:**
 <img width="659" height="334" alt="image" src="https://github.com/user-attachments/assets/2c8fd960-e912-4338-83ea-dca2c86c90e1" />
+
+### Eight puzzel Problem Uisng Hill climbing :
+
+A greedy local search to quickly move toward the goal by always choosing the neighbor with the lowest heuristic (h). It’s fast and memory-light, but not guaranteed to find the optimal path—or any solution—because it can get stuck.
+
+**How it works :**
+
+Start at the initial board; compute h = Manhattan distance.
+
+Generate all valid neighbors (move blank U/D/L/R).
+
+Pick the neighbor with strictly smaller h (best improvement).
+
+Move there and repeat.
+
+If no neighbor improves h, stop ⇒ you’re on a local minimum / plateau (or shoulder).
+
+**Complexity**
+
+**Per step:** generate ≤4 neighbors and compute h → O(1) neighbors × O(N²) to compute h ⇒ ~O(N²) per move (here, N=3).
+
+**Total:** depends on steps taken until stuck/goal; no global bound—often much less than exhaustive search, but not complete.
+
+**Space:** stores only current state + neighbors ⇒ O(1) (very small).
+
+**Output :**
+
+<img width="549" height="772" alt="image" src="https://github.com/user-attachments/assets/d7d8a5af-31d5-499b-b13e-bec48578ac4e" />
+
+
+
+
 
 
 
