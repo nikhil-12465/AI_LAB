@@ -64,9 +64,9 @@ In this 8-puzzle program, DFS is used to reach the goal configuration (1 2 3 4 5
 
    For a 3×3 puzzle →
 
-   Even inversions ⇒ Solvable ✅
+   Even inversions ⇒ Solvable 
 
-   Odd inversions ⇒ Unsolvable ❌
+   Odd inversions ⇒ Unsolvable 
 
 **Time Complexity:**
 
