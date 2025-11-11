@@ -199,9 +199,109 @@ A solution exists iff target ≤ max(jug1, jug2) and target % gcd(jug1, jug2) ==
 <img width="404" height="143" alt="Screenshot 2025-11-11 013208" src="https://github.com/user-attachments/assets/ed25185b-1bc7-4a20-82fa-23cb26cc1285" />
 
 
+## Day 3: Mini-Max algo and alpha beta pruning
+
+### 1. Mini-Max Tree Geaeration
+
+Generate the entire game tree from the current board by placing the next player’s move in every empty cell, marking terminal states as:
+
+**+1 if X wins
+-1 if O wins
+0 if draw**
+
+This tree is what Minimax uses to choose the best move.
+
+**How It Works**
+
+1. If the board is a terminal state → set score to +1/-1/0 and stop.
+
+2. Otherwise, for each empty cell:
+
+   place current player (X or O),
+
+   create a child node,
+
+   **recurse** with the other player.
+
+ 3. Thus, you enumerate all possible future games from the current state.
+
+**Time Complexity**
+
+   Worst case builds the full game tree: O(b^d)
+
+   For Tic-Tac-Toe, b ≤ 9 (available cells), d ≤ 9 → bounded and small.
+
+**Space Complexity**
+
+O(b·d) recursion stack + nodes stored (bounded and small for 3×3).
 
 
+**Output:**
 
+<img width="373" height="52" alt="image" src="https://github.com/user-attachments/assets/84f04e11-eb54-4883-ac3a-2b5276c43e25" />
+
+
+### 2. Tic-Tac-Toe Game using Mini-Max algo.
+
+Choose the best move for the computer by exploring all possible future moves and assuming the opponent also plays optimally. Ensures optimal (unbeatable) play on a 3×3 board.
+
+**How it Works :**
+
+**1. Terminal check:** if X or O has a 3-in-a-row → return a fixed score; if board full → return draw (0).
+
+**2.Recursion:**
+
+   On **computer turn (O)** → try all empty cells with ‘O’, take the max score.
+
+   On **human turn (X)** → try all empty cells with ‘X’, take the min score.
+
+**3. bestMove:** simulate each legal ‘O’ move, call minmax, and pick the move with the highest score.
+
+**Time Complexity**
+
+   O(b^d) (branching ≤ 9, depth ≤ 9). For 3×3 it’s tiny and perfectly fine.
+
+**Space Complexity**
+
+O(d) recursion stack (≤ 9) plus board copies.
+
+
+**Output:**
+
+<img width="506" height="681" alt="image" src="https://github.com/user-attachments/assets/819b41ba-cbdf-4a61-8078-a3ef038613ae" />
+
+
+### 3. Tic_Tac_Toe using alpha Beta pruning 
+
+Choose the best move for the computer by exploring game states assuming optimal play from both sides.
+Alpha–beta skips branches that cannot affect the final choice ⇒ same optimal result, fewer nodes
+
+**How It Works:**
+
+**1.Terminal check:** if someone won → return score; if 9 moves → draw (0).
+
+**2.Max turn (computer ‘O’)**: try all empty cells with ‘O’, take max score; update alpha.
+
+**3.Min turn (human ‘X’):** try all empty cells with ‘X’, take min score; update beta.
+
+**4.Prune:** if beta ≤ alpha, stop exploring that branch.
+
+5.bestMove tries each legal ‘O’ move, calls minmax, and picks the highest score.
+
+
+**Time Complexity:**
+
+**Minimax:** O(b^d) (b ≤ 9, d ≤ 9).
+
+**With Alpha–Beta:** best case about O(b^(d/2)) (big pruning on ordered trees).
+
+**Space Complexity:**
+
+O(d) recursion depth (≤ 9) + board state.
+
+**Output :**
+
+<img width="657" height="861" alt="image" src="https://github.com/user-attachments/assets/5517a602-f338-4fdf-a6d8-81f99b96f48e" />
 
 
 
