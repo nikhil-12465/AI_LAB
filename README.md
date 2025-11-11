@@ -304,7 +304,61 @@ O(d) recursion depth (≤ 9) + board state.
 <img width="657" height="861" alt="image" src="https://github.com/user-attachments/assets/5517a602-f338-4fdf-a6d8-81f99b96f48e" />
 
 
+## DAY 4: Prolog and its use cases 
 
+**Prolog :** **Prolog (Programming in Logic)** is a logic-based language used in **Artificial Intelligence and expert systems.**
+It works with **facts, rules,** and **queries** instead of step-by-step instructions.
+Prolog uses **logical reasoning, unification,** and **backtracking** to find answers.
+It’s mainly used for **knowledge representation, NLP, and problem-solving tasks.**
+Example: grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+
+
+### 1. Block World Problem 
+
+This Prolog program represents a Block World where blocks are stacked in piles.
+It uses facts and rules to define possible moves, a goal state, and a search process to reach the goal.
+
+**How It Works:**
+
+Each state is a list of stacks (e.g., [[a,b], [c]] means a on b, and c alone).
+
+The move/2 rule moves the top block from one stack to another.
+
+The goal/2 rule checks if the current state equals the goal.
+
+The path/3 predicate recursively searches through states using backtracking until the goal is reached.
+
+**Example:**
+   
+    initial([[a,b,c], [d]]).
+    goal_state([[a,b], [c,d]]).
+
+
+### 2. Monkey and banana Problem :
+
+This Prolog program models the Monkey and Banana problem, a classic AI search problem in logic programming.
+The monkey must reach and grab a banana by moving, pushing a box, climbing it, and grabbing the banana.
+
+**How It Works:**
+
+Each **state** is represented as:
+state(MonkeyPosition, BoxPosition, MonkeyOnBox?, HasBanana?)
+
+The initial state starts with the monkey on the floor, away from the banana.
+
+The goal state is when the monkey has the banana.
+
+The move/3 rules define all possible actions — walking, pushing the box, climbing, and grabbing.
+
+The path/3 predicate recursively searches for a sequence of valid actions to reach the goal.
+
+**Example**
+   
+    ?- initial(S), path(S, Plan).
+
+**Key Idea**
+
+Uses state-space search, logical reasoning, and backtracking to plan actions that achieve the goal.
 
 
 
